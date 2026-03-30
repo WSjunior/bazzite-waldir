@@ -1,5 +1,5 @@
 # Imagem customizada baseada no Bazzite DX (NVIDIA)
-# Adiciona Hyprland, fontes e drivers ODBC
+# Adiciona Hyprland e fontes
 FROM ghcr.io/ublue-os/bazzite-dx-nvidia:stable
 
 # Hyprland via COPR sdegler (ecossistema completo para Fedora 43)
@@ -39,11 +39,3 @@ RUN rpm-ostree install \
 # Fontes Microsoft (copiadas do host)
 COPY fonts/ /usr/share/fonts/microsoft/
 RUN fc-cache -f
-
-# Drivers ODBC - SQL Server (usa repo Fedora 42 pois o 43 não tem o pacote ainda)
-RUN curl -fsSL https://packages.microsoft.com/config/fedora/42/prod.repo \
-    -o /etc/yum.repos.d/mssql-release.repo \
-    && ACCEPT_EULA=Y rpm-ostree install \
-    unixODBC \
-    msodbcsql18 \
-    && rpm-ostree cleanup -m
