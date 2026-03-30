@@ -34,7 +34,6 @@ RUN rpm-ostree install \
     fontawesome-fonts-all \
     jetbrains-mono-fonts-all \
     cascadia-code-nf-fonts \
-    cascadiamono-nerd-fonts \
     && rpm-ostree cleanup -m
 
 # Fontes Microsoft (copiadas do host)
