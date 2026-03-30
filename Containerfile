@@ -18,6 +18,15 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/ashbuk/Hyprland-Fedora/r
     grim \
     slurp \
     wl-clipboard \
+    uwsm \
+    swaybg \
+    hyprpicker \
+    hyprsunset \
+    playerctl \
+    pamixer \
+    brightnessctl \
+    satty \
+    imv \
     && rpm-ostree cleanup -m
 
 # Google Chrome (adiciona repo oficial e instala)
