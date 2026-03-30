@@ -44,6 +44,18 @@ RUN curl -fsSL https://download.teamviewer.com/download/linux/teamviewer.x86_64.
     && rm /tmp/teamviewer.rpm \
     && rpm-ostree cleanup -m
 
+# Fontes
+RUN rpm-ostree install \
+    fontawesome-fonts-all \
+    jetbrains-mono-fonts-all \
+    cascadia-code-nf-fonts \
+    cascadiamono-nerd-fonts \
+    && rpm-ostree cleanup -m
+
+# Fontes Microsoft (copiadas do host)
+COPY fonts/ /usr/share/fonts/microsoft/
+RUN fc-cache -f
+
 # Drivers ODBC - SQL Server e Firebird (elimina dependência do brew para isso)
 RUN curl -fsSL https://packages.microsoft.com/config/fedora/43/prod.repo \
     -o /etc/yum.repos.d/mssql-release.repo \
