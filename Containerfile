@@ -29,6 +29,8 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fe
     imv \
     pavucontrol \
     blueman \
+    stow \
+    cliphist \
     && rpm-ostree cleanup -m
 
 # Fontes
