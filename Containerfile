@@ -1,5 +1,5 @@
 # Imagem customizada baseada no Bazzite DX (NVIDIA)
-# Adiciona Hyprland, Chrome, drivers ODBC e pacotes extras
+# Adiciona Hyprland, fontes e drivers ODBC
 FROM ghcr.io/ublue-os/bazzite-dx-nvidia:stable
 
 # Hyprland via COPR sdegler (ecossistema completo para Fedora 43)
@@ -27,13 +27,6 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fe
     brightnessctl \
     satty \
     imv \
-    && rpm-ostree cleanup -m
-
-# TeamViewer (RPM oficial)
-RUN curl -fsSL https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm \
-    -o /tmp/teamviewer.rpm \
-    && rpm-ostree install /tmp/teamviewer.rpm \
-    && rm /tmp/teamviewer.rpm \
     && rpm-ostree cleanup -m
 
 # Fontes
