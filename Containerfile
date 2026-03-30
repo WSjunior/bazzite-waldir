@@ -33,12 +33,10 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fe
 RUN mkdir -p /usr/lib/opt/google /var/opt \
     && rm -f /opt && ln -sf /var/opt /opt \
     && ln -sf /usr/lib/opt/google /var/opt/google \
-    && curl -fsSL https://dl.google.com/linux/linux_signing_key.pub -o /tmp/chrome-key.pub \
-    && rpm --import /tmp/chrome-key.pub \
     && curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
     -o /tmp/google-chrome.rpm \
-    && rpm-ostree install /tmp/google-chrome.rpm \
-    && rm /tmp/google-chrome.rpm /tmp/chrome-key.pub \
+    && rpm-ostree install --allow-inactive /tmp/google-chrome.rpm \
+    && rm /tmp/google-chrome.rpm \
     && rpm-ostree cleanup -m
 
 # TeamViewer (RPM oficial)
