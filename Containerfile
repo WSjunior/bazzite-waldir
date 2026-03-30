@@ -29,16 +29,6 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fe
     imv \
     && rpm-ostree cleanup -m
 
-# Google Chrome (precisa de symlink /opt -> /usr/lib/opt para ostree)
-RUN mkdir -p /usr/lib/opt/google /var/opt \
-    && rm -f /opt && ln -sf /var/opt /opt \
-    && ln -sf /usr/lib/opt/google /var/opt/google \
-    && curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
-    -o /tmp/google-chrome.rpm \
-    && rpm-ostree install --allow-inactive /tmp/google-chrome.rpm \
-    && rm /tmp/google-chrome.rpm \
-    && rpm-ostree cleanup -m
-
 # TeamViewer (RPM oficial)
 RUN curl -fsSL https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm \
     -o /tmp/teamviewer.rpm \
