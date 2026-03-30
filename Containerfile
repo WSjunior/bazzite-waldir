@@ -40,8 +40,8 @@ RUN rpm-ostree install \
 COPY fonts/ /usr/share/fonts/microsoft/
 RUN fc-cache -f
 
-# Drivers ODBC - SQL Server e Firebird (elimina dependência do brew para isso)
-RUN curl -fsSL https://packages.microsoft.com/config/fedora/43/prod.repo \
+# Drivers ODBC - SQL Server (usa repo Fedora 42 pois o 43 não tem o pacote ainda)
+RUN curl -fsSL https://packages.microsoft.com/config/fedora/42/prod.repo \
     -o /etc/yum.repos.d/mssql-release.repo \
     && ACCEPT_EULA=Y rpm-ostree install \
     unixODBC \
