@@ -27,6 +27,8 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fe
     brightnessctl \
     satty \
     imv \
+    pavucontrol \
+    blueman \
     && rpm-ostree cleanup -m
 
 # Fontes
