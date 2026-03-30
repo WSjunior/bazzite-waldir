@@ -29,12 +29,11 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fe
     imv \
     && rpm-ostree cleanup -m
 
-# Google Chrome (adiciona repo oficial e instala)
-RUN curl -fsSL https://dl.google.com/linux/linux_signing_key.pub \
-    -o /etc/pki/rpm-gpg/google-chrome.pub \
-    && echo -e "[google-chrome]\nname=Google Chrome\nbaseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/google-chrome.pub" \
-    > /etc/yum.repos.d/google-chrome.repo \
-    && rpm-ostree install google-chrome-stable \
+# Google Chrome (RPM direto)
+RUN curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
+    -o /tmp/google-chrome.rpm \
+    && rpm-ostree install /tmp/google-chrome.rpm \
+    && rm /tmp/google-chrome.rpm \
     && rpm-ostree cleanup -m
 
 # TeamViewer (RPM oficial)
