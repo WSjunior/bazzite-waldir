@@ -2,8 +2,8 @@
 # Adiciona Hyprland, Chrome, drivers ODBC e pacotes extras
 FROM ghcr.io/ublue-os/bazzite-dx-nvidia:stable
 
-# Hyprland via COPR (não está nos repos oficiais do Fedora 43)
-RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/ashbuk/Hyprland-Fedora/repo/fedora-43/ashbuk-Hyprland-Fedora-fedora-43.repo" \
+# Hyprland via COPR sdegler (ecossistema completo para Fedora 43)
+RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-43/sdegler-hyprland-fedora-43.repo" \
     -o /etc/yum.repos.d/hyprland.repo \
     && rpm-ostree install \
     hyprland \
