@@ -31,6 +31,7 @@ RUN curl -fsSL "https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fe
     blueman \
     stow \
     cliphist \
+    wayvnc \
     && rpm-ostree cleanup -m
 
 # Fontes
